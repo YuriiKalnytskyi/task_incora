@@ -1,9 +1,9 @@
-import {SET_USERS, SET_POSTS, SET_POSTS_ID} from "../actionTypes";
+import {SET_USERS, SET_POSTS, SET_POSTS_ID, SET_COMMENTS_ID, DELETE_POSTS} from "../actionTypes";
 
 const initialState = {
     users:[],
     posts:[],
-    port:[]
+    comments:[]
 }
 export const userReduser =(state=initialState , action)=>{
     switch (action.type) {
@@ -20,6 +20,18 @@ export const userReduser =(state=initialState , action)=>{
             }
         }
         case SET_POSTS_ID:{
+            return {
+                ...state,
+                posts: action.payload
+            }
+        }
+        case SET_COMMENTS_ID:{
+            return {
+                ...state,
+                comments: action.payload
+            }
+        }
+        case DELETE_POSTS:{
             return {
                 ...state,
                 posts: action.payload

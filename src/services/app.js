@@ -15,6 +15,20 @@ const getAllPosts = () => {
 const getAllPostsId = (id) => {
     return axiosInstance.get('/posts?userId='+id)
 }
+const getCommentsId = (id) => {
+    return axiosInstance.get('/comments?postId='+id)
+}
+const postPost = (a) => {
+    return axiosInstance.post('/posts',a)
+}
+const putPostService = (id,a) => {
+    return axiosInstance.put(`/posts/${id}`,a)
+}
+const deletePostService = (id) => {
+    return axiosInstance.delete(`/posts/${id}`)
+}
+
+
 export {
-    getAllUsers, getAllPosts ,getAllPostsId
+    getAllUsers, getAllPosts ,getAllPostsId, getCommentsId , postPost, putPostService, deletePostService
 }
